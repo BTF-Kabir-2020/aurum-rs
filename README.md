@@ -822,12 +822,9 @@ Keep the product shell polished while keeping the core technically honest.
 
 ---
 
-## Product name decision
+## Product naming
 
-| Candidate | Status |
-|---|---|
-| `aurum-rs` | **Frozen for v0.1** (repo + project name) |
-| `marketforge-rs` | Not chosen; revisit only if scope grows beyond gold before repo creation |
+Aurum is the product; `aurum-rs` is the repository/binary name (frozen for v0.1).
 
 ## Declared out of scope for v0.1
 

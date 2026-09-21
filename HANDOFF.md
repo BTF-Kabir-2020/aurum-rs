@@ -73,21 +73,12 @@ aurum-rs/
 
 ---
 
-## 4a. Environment notes (this dev container)
+## 4a. Environment notes (per dev machine)
 
-- `PATH` is not persisted in new shells: prefix `export PATH="$HOME/.cargo/bin:$PATH"`. This dev container is **recreated often (apt packages reset)**; after a rebuild, reinstall `build-essential` for `cc` before compiling here:
-  ```
-  echo 'Acquire::http::proxy "http://host.docker.internal:10808";
-  Acquire::https::proxy "http://host.docker.internal:10808";' > /etc/apt/apt.conf.d/99aurum-proxy
-  apt-get update && apt-get install -y --no-install-recommends build-essential
-  ```
-- Rust 1.98.1 exact toolchain installed at `~/.cargo/bin` with `rustfmt` + `clippy` survives in the container home. In the project dir (`rust-toolchain.toml` pin) everything selects automatically — no `RUSTUP_TOOLCHAIN` needed.
-- Verified locally (2026-09-21): `cargo check` ✅ · `cargo fmt --check` ✅ · `cargo clippy --all-targets` ✅ · `cargo run` prints `Aurum — Financial Market Intelligence Engine` and exits 0.
-- Network: default `HTTPS_PROXY=http://127.0.0.1:17890` works for `crates.io` + `static.rust-lang.org` (deps/toolchain OK). Tor is up via `socks5://tor:9050`.
-- **When something is blocked by the network**, the owner's Windows host runs a **mixed** proxy (HTTP + SOCKS5) on port **10808**, reachable from the container as `host.docker.internal:10808` — use it for the JAMMED call only (e.g. Debian/apt gave 502 on the default route).
-- That host proxy is a per-host contingency (Iran filtering); future hosts may not have it. Runtime tweaks: `/etc/apt/apt.conf.d/99aurum-proxy`, `.env` (gitignored), shell env — all ephemeral, never committed.
-- `git` is NOT installed in this container; `git init -b main` must run on the Windows host (see §6).
-- Docker verification was done on the Windows host (2026-09-21): release build via `rust:1.98.1-bookworm` works with `rustls-no-provider`/`ring` (no cmake needed anywhere), slim runtime runs `aurum server`, health endpoint answers. `docker compose up -d` + `docker compose ps` are the smoke path.
+- Toolchain pinned via `rust-toolchain.toml` (1.98.1, edition 2024); `rustfmt` + `clippy` required (README §6).
+- Network installs (crates.io, toolchain, apt) are **per-host concerns**: they must never enter the repository, `config.toml`, or committed docs — use gitignored `.env` / shell env only (see docs/CONFIGURATION.md, §3 rule 13).
+- `git` initially unavailable in some container hosts — init/commit on the host machine (done, §7).
+- First verified host (2026-09-21): release build via `rust:1.98.1-bookworm` works with `rustls-no-provider`/`ring` (no cmake anywhere); slim runtime runs `aurum server`; `docker compose up -d` + `docker compose ps` is the smoke path. Native Windows host gates also green (see §4).
 
 ---
 
