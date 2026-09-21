@@ -51,11 +51,11 @@ cargo install --path .
 
 ## Release checklist before tagging
 
-- [ ] `cargo fmt --all -- --check` passes
-- [ ] `cargo check --all-targets --all-features` passes
-- [ ] `cargo clippy --all-targets --all-features -- -D warnings` passes
-- [ ] `cargo test --all-targets --all-features` passes
-- [ ] `aurum version` output matches the tag
-- [ ] Demo, doctor, API, backup/restore, Docker smoke tests pass
-- [ ] No secrets committed
-- [ ] README/docs updated
+- [x] `cargo fmt --all -- --check` passes
+- [x] `cargo check --all-targets --all-features` passes
+- [x] `cargo clippy --all-targets --all-features -- -D warnings` passes
+- [x] `cargo test --all-targets --all-features` passes
+- [x] `aurum version` output matches the tag
+- [x] Demo, doctor, API, backup/restore, Docker smoke tests pass
+- [x] No secrets committed
+- [x] README/docs updated

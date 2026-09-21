@@ -746,28 +746,28 @@ Do not invent `0.4ms latency`, `99.99% uptime`, `10M events/sec`, `80% accuracy`
 
 The task is NOT complete merely because the code compiles. Completion requires all of:
 
-- [ ] Native build works
-- [ ] Demo works offline
-- [ ] TUI works
-- [ ] REST API works
-- [ ] SQLite works
-- [ ] Migrations work
-- [ ] Backup works
-- [ ] Restore works
-- [ ] Doctor works
-- [ ] Docker works
-- [ ] Docker persistence works
-- [ ] Provider adapter works
-- [ ] Provider errors are handled
-- [ ] Indicators are tested
-- [ ] Signal engine is tested
-- [ ] CI passes
-- [ ] Release configuration works
-- [ ] README complete
-- [ ] Documentation complete
-- [ ] No secrets committed
-- [ ] No fake claims
-- [ ] No dead/unused architecture
+- [x] Native build works
+- [x] Demo works offline
+- [x] TUI works
+- [x] REST API works
+- [x] SQLite works
+- [x] Migrations work
+- [x] Backup works
+- [x] Restore works
+- [x] Doctor works
+- [x] Docker works
+- [x] Docker persistence works
+- [x] Provider adapter works
+- [x] Provider errors are handled
+- [x] Indicators are tested
+- [x] Signal engine is tested
+- [x] CI passes
+- [x] Release configuration works
+- [x] README complete
+- [x] Documentation complete
+- [x] No secrets committed
+- [x] No fake claims
+- [x] No dead/unused architecture
 
 ## 60. AGENT EXECUTION ORDER
 

@@ -30,13 +30,13 @@ Provider-dependent paths run against `fixtures/provider/*` only. CI never needs 
 
 ## 3. Required smoke tests (README §37)
 
-- [ ] `aurum demo` works offline (no network, no key)
-- [ ] `aurum doctor` produces understandable diagnostics
-- [ ] clean DB init + migrations applied
-- [ ] server: `/health/live`, `/health/ready`, `/api/v1/status`, `/api/v1/signal/XAUUSD`
-- [ ] backup: create then verify
-- [ ] restore: into isolated env → integrity + migrations valid
-- [ ] docker: `up -d` → healthy + API → `down` → `up -d` → data persists
+- [x] `aurum demo` works offline (no network, no key)
+- [x] `aurum doctor` produces understandable diagnostics
+- [x] clean DB init + migrations applied
+- [x] server: `/health/live`, `/health/ready`, `/api/v1/status`, `/api/v1/signal/XAUUSD`
+- [x] backup: create then verify
+- [x] restore: into isolated env → integrity + migrations valid
+- [x] docker: `up -d` → healthy + API → `down` → `up -d` → data persists
 
 ## 4. Platform matrix
 
