@@ -145,7 +145,14 @@ git init -b main; git add -A; git commit -m "chore: scaffold Aurum repo (spec, d
 ## 7. Known open questions for the owner (BTF-Kabir-2020)
 
 - [x] git init + first commit on Windows host — DONE 2026-09-21 (commit `641467f`, 99 files; `.env`/`data/*`/`backups/*.db`/`config.toml` verified NOT tracked; no push, no remote yet). Owner verified: `.env` is not listed in `git status` ✅
-- [ ] Publish repo to GitHub (`aurum-rs`, public) — owner: "will publish, but not now"; when ready: `git remote add origin git@github.com:BTF-Kabir-2020/aurum-rs.git; git push -u origin main`
+- [x] Annotated release tag `v0.1.0` created locally (`git tag -n` shows it). Push it with `git push origin main --tags` — cargo-dist will build archives + installers (needs the `production` environment first).
+- [x] Pre-publish audit DONE (2026-09-21): gitattributes/gitignore validated, 0 secrets tracked (`.env`, DB, backups, config.toml all ignored), workflows valid, gates green (fmt/clippy/106 tests/audit=0/deny ok). Repo is push-ready.
+- [ ] Publish repo to GitHub (`aurum-rs`, public) — owner: "will publish, but not now"; when ready:
+  ```powershell
+  git remote add origin https://github.com/BTF-Kabir-2020/aurum-rs.git
+  git push -u origin main
+  git push origin v0.1.0
+  ```
 - [ ] Create GitHub Environment `production` **after** repo publish (it needs the repo to exist): Settings → Environments → New → `production`. The generated cargo-dist `release.yml` expects it before first tag `v0.1.0`.
 - [ ] Legal name for LICENSE if the handle is not desired.
 
