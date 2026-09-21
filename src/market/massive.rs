@@ -302,9 +302,9 @@ pub const RESILIENCE_MAX_ATTEMPTS: u32 = MAX_ATTEMPTS;
 mod tests {
     use super::*;
     use crate::market::provider::MarketDataProvider;
-    use std::path::PathBuf;
     use axum::routing::get;
     use std::net::SocketAddr;
+    use std::path::PathBuf;
 
     fn fixture(name: &str) -> String {
         std::fs::read_to_string(
