@@ -153,11 +153,10 @@ git init -b main; git add -A; git commit -m "chore: scaffold Aurum repo (spec, d
 
 ## 7. Known open questions for the owner (BTF-Kabir-2020)
 
-- [ ] Publish repo to GitHub (`aurum-rs`, public) — owner said "not yet"; wait for instruction.
-- [ ] Create GitHub Environment `production` before first tagged release (docs/RELEASE.md).
+- [x] git init + first commit on Windows host — DONE 2026-09-21 (commit `641467f`, 99 files; `.env`/`data/*`/`backups/*.db`/`config.toml` verified NOT tracked; no push, no remote yet). Owner verified: `.env` is not listed in `git status` ✅
+- [ ] Publish repo to GitHub (`aurum-rs`, public) — owner: "will publish, but not now"; when ready: `git remote add origin git@github.com:BTF-Kabir-2020/aurum-rs.git; git push -u origin main`
+- [ ] Create GitHub Environment `production` **after** repo publish (it needs the repo to exist): Settings → Environments → New → `production`. The generated cargo-dist `release.yml` expects it before first tag `v0.1.0`.
 - [ ] Legal name for LICENSE if the handle is not desired.
-- [x] Massive API key + flat-files (S3) credentials provided by owner — stored in gitignored `.env` only, never committed (2026-09-21).
-- [ ] Owner to verify `.env` is not listed in `git status` after the first commit.
 
 ## 8. Where everything lives (map)
 
