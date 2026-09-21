@@ -1,0 +1,64 @@
+name: Bug report
+description: Report a bug in Aurum
+labels: [bug]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks. Fill this in so we can reproduce the problem. Redact any API keys before pasting output.
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Paste the output of `aurum version`
+      placeholder: "0.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: platform
+    attributes:
+      label: Platform / mode
+      description: OS, native or Docker, and mode (demo/historical/live)
+      placeholder: "Windows 11, native, demo"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: What you ran, in order
+      placeholder: |
+        1. cargo run -- demo
+        2. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      placeholder: Paste the error and its output. Redact any API keys first.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Verification
+      options:
+        - label: I ran `cargo fmt --all -- --check`, `cargo clippy --all-targets --all-features -- -D warnings`, and `cargo test --all-targets --all-features` — all pass
+          required: false
+        - label: No secrets/API keys are present in this report
+          required: true

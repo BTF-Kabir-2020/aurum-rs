@@ -1,0 +1,109 @@
+name: CI
+
+# Fast feedback: fmt, check, clippy, and test for every PR and push to main.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  checks:
+    name: fmt + check + clippy (Linux)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          key: aurum
+      - name: Format
+        run: cargo fmt --all -- --check
+      - name: Check
+        run: cargo check --all-targets --all-features
+      - name: Clippy
+        run: cargo clippy --all-targets --all-features -- -D warnings
+      - name: Test
+        run: cargo test --all-targets --all-features
+
+  # Windows and macOS get the full test run too; Linux is the primary target.
+  test-win:
+    name: test (Windows)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          key: aurum-win
+      - name: Test
+        run: cargo test --all-targets --all-features
+
+  test-mac:
+    name: test (macOS)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          key: aurum-mac
+      - name: Test
+        run: cargo test --all-targets --all-features
+
+  # Cargo audit for advisories, cargo deny for licenses and banned crates.
+  security:
+    name: audit + deny (Linux)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install cargo-audit
+        uses: taiki-e/install-action@cargo-audit
+      - name: Install cargo-deny
+        uses: taiki-e/install-action@cargo-deny
+      - name: Cache advisory DB
+        uses: actions/cache@v4
+        with:
+          path: ~/.cargo/advisory-db
+          key: advisory-db
+      - name: Audit advisories
+        run: cargo audit
+      - name: Deny licenses/bans
+        run: cargo deny check
+
+  # Build the image, hit the health endpoint, then confirm data survives a restart.
+  docker:
+    name: docker build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Docker build
+        run: docker compose build
+      - name: Verify container health and API
+        run: |
+          docker compose up -d
+          for i in $(seq 1 30); do
+            if curl -sf http://127.0.0.1:8080/health/live; then
+              echo "healthy"
+              exit 0
+            fi
+            sleep 1
+          done
+          docker compose logs
+          exit 1
+      - name: Persistence check
+        run: |
+          docker compose down
+          docker compose up -d
+          curl -sf http://127.0.0.1:8080/api/v1/status
+          docker compose down

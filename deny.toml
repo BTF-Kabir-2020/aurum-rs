@@ -1,0 +1,44 @@
+[advisories]
+db-path = "~/.cargo/advisory-db"
+db-urls = ["https://github.com/rustsec/advisory-db"]
+yanked = "deny"
+ignore = []
+
+[bans]
+multiple-versions = "deny"
+wildcards = "deny"
+highlight = "all"
+deny = []
+# Transitive duplicates from upstream ecosystem (verified via `cargo tree -d`):
+# axum/reqwest vs sqlx ecosystems pin different majors; blocked on upstream.
+skip = [
+  { crate = "base64", version = "0.22", reason = "transitive-duplicate (upstream)" },
+  { crate = "hashbrown", version = "0.15", reason = "transitive-duplicate (upstream)" },
+  { crate = "hashbrown", version = "0.16", reason = "transitive-duplicate (upstream)" },
+  { crate = "hashbrown", version = "0.14", reason = "transitive-duplicate (upstream)" },
+  { crate = "syn", version = "1", reason = "transitive-duplicate (upstream)" },
+  { crate = "tower-http", version = "0.6", reason = "transitive-duplicate (upstream)" },
+  { crate = "windows-sys", version = "0.59", reason = "transitive-duplicate (upstream)" },
+]
+skip-tree = []
+
+[licenses]
+version = 2
+# Allow-list model (cargo-deny ≥0.18): anything not listed here is denied,
+# which removes GPL/AGPL/LGPL by construction (docs/RELEASE.md gate).
+allow = [
+  "MIT",
+  "Apache-2.0",
+  "BSD-3-Clause",
+  "BSD-2-Clause",
+  "ISC",
+  "Unicode-3.0",
+  "Zlib",
+  "CDLA-Permissive-2.0",
+]
+confidence-threshold = 0.8
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-git = []

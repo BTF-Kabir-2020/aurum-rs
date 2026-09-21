@@ -1,0 +1,22 @@
+* text=auto eol=lf
+
+*.rs text
+*.toml text
+*.md text
+*.sql text
+*.yml text
+*.yaml text
+*.json text
+*.csv text
+*.sh text eol=lf
+*.ps1 text eol=crlf
+*.md text
+Cargo.lock text
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.db binary

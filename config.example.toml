@@ -1,0 +1,21 @@
+# Copy to config.toml (gitignored) and tweak. Never put secrets here — inject
+# them via the environment instead (see docs/CONFIGURATION.md).
+
+[app]
+mode = "demo"
+symbol = "XAUUSD"
+timeframe = "5m"
+
+[server]
+host = "127.0.0.1"
+port = 8080
+
+[database]
+path = "./data/aurum.db"
+retention_days = 90
+
+[provider]
+name = "massive"
+
+[ui]
+refresh_ms = 1000

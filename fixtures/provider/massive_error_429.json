@@ -1,0 +1,6 @@
+{
+  "status": "error",
+  "request_id": "8f9c3f2d6b7a4e51a0b2c4d6e8f0a2b4",
+  "error": "You've exceeded the maximum requests per minute. Please try again later.",
+  "message": "You've exceeded the maximum requests per minute. Please try again later."
+}

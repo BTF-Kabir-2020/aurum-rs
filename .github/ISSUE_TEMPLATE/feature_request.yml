@@ -1,0 +1,36 @@
+name: Feature request
+description: Suggest an idea for Aurum
+labels: [enhancement]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Aurum stays small on purpose. Read the README roadmap and `docs/` first — a lot of ideas are out of scope for v0.1.
+
+  - type: input
+    id: problem
+    attributes:
+      label: What problem does this solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution / API
+      placeholder: Explain the behavior, CLI/API shape, and how you'd demo it.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - v0.1 (freeze for MVP)
+        - v0.2+ roadmap
+        - Later / exploratory
+    validations:
+      required: true
