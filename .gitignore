@@ -1,23 +1,25 @@
+# ---- Build ----
 /target
 
+# ---- Runtime data (never commit user databases or generated backups) ----
+/data/*
+!/data/README.md
+/backups/*
+!/backups/README.md
+
+# ---- Local runtime config (each user creates their own) ----
+/config.toml
+/config.local.toml
+
+# ---- Environment & secrets (templates are tracked, real values never) ----
 .env
 .env.*
 !.env.example
 !.env.production.example
 
-/config.toml
-/config.local.toml
-
-/data/*.db
-/data/*.db-shm
-/data/*.db-wal
-/data/*.db.bak
-
-/backups/*.db
-
-*.log
-*.tmp
-
+# ---- OS / editor noise ----
 .DS_Store
 .idea/
 .vscode/
+*.log
+*.tmp
