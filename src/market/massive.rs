@@ -1,4 +1,3 @@
-use std::path::PathBuf;
 use std::sync::Once;
 use std::time::Duration;
 
@@ -303,6 +302,7 @@ pub const RESILIENCE_MAX_ATTEMPTS: u32 = MAX_ATTEMPTS;
 mod tests {
     use super::*;
     use crate::market::provider::MarketDataProvider;
+    use std::path::PathBuf;
     use axum::routing::get;
     use std::net::SocketAddr;
 

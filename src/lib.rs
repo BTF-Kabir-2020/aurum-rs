@@ -1,6 +1,6 @@
 // Modules shared by the `aurum` binary, integration tests and future consumers.
 // Phase-wise consumption tracked in HANDOFF.md (README §60).
-#![allow(dead_code)]
+// (no allow(dead_code): everything wired)
 
 pub mod api;
 pub mod cli;

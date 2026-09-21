@@ -525,10 +525,9 @@ src/
 │   └── backup.rs
 ├── cli/
 │   ├── mod.rs
-│   ├── demo.rs
+│   ├── config_cmd.rs   # aurum config (show | validate | init) + `aurum init`
 │   ├── doctor.rs
-│   ├── config.rs
-│   ├── market.rs
+│   ├── market.rs       # quote / history / signal / demo
 │   └── backup.rs
 ├── api/
 │   ├── mod.rs
@@ -539,10 +538,6 @@ src/
 │   ├── app.rs
 │   └── ui.rs
 ```
-
-> Tree above fixes the target names: `aurum config` = `cli/config_cmd.rs`,
-> `aurum demo`/`aurum quote|history|signal` = `cli/market.rs`, doctor/backup
-> in their own files.
 
 No empty abstractions just for appearance. Every module has a real purpose.
 
