@@ -87,6 +87,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # Bind mounts are owned by the runner uid; the container runs as a
+      # non-root user (10001). Widen dirs so it can create /data/aurum.db.
+      - name: Prepare writable bind-mount dirs
+        run: |
+          mkdir -p data backups
+          sudo chmod 777 data backups
       - name: Docker build
         run: docker compose build
       - name: Verify container health and API
