@@ -72,7 +72,7 @@ jobs:
       - name: Install cargo-deny
         uses: taiki-e/install-action@cargo-deny
       - name: Cache advisory DB
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.cargo/advisory-db
           key: advisory-db
