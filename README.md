@@ -640,6 +640,7 @@ Then `docker compose up -d`. Then a provider configuration example. The demo pat
 - `docs/OPERATIONS.md`
 - `docs/BACKUPS.md`
 - `docs/RELEASE.md`
+- `CHANGELOG.md`
 
 Keep documentation concise and accurate.
 
