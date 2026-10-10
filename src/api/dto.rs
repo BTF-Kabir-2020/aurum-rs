@@ -182,7 +182,7 @@ pub fn signal_dto(
     }
 }
 
-/// HTTP status + actionable message for domain errors (README §21).
+/// HTTP status + actionable message for domain errors (docs/SPEC §21).
 pub fn api_status(e: &Error) -> (axum::http::StatusCode, String) {
     let msg = e.to_string();
     let code = match e {

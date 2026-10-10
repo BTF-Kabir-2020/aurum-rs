@@ -12,7 +12,7 @@ aurum version
 ```
 
 Run the offline demo (no API key, no network). `--speed 1..10` scales the
-deterministic replay playback (README §30):
+deterministic replay playback (docs/SPEC §30):
 
 ```
 aurum demo
@@ -24,7 +24,7 @@ One-shot alternatives (each fetches + persists and prints its result):
 ```
 aurum quote XAUUSD --offline
 aurum history XAUUSD --offline --limit 10
-aurum signal XAUUSD --offline     # JSON per README §50 shape
+aurum signal XAUUSD --offline     # JSON per docs/SPEC §50 shape
 ```
 
 Manage configuration:
@@ -111,7 +111,7 @@ GET /health/ready                 # application can perform required operations
 GET /api/v1/status                # version, mode, provider
 GET /api/v1/quote/XAUUSD          # fresh quote, or stale cache tagged stale:true + age_seconds
 GET /api/v1/history/XAUUSD?limit=50
-GET /api/v1/signal/XAUUSD         # README §50 response shape
+GET /api/v1/signal/XAUUSD         # docs/SPEC §50 response shape
 ```
 
 All responses include `version`. The app is NOT reported unhealthy merely

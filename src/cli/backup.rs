@@ -4,7 +4,7 @@ use crate::config::Config;
 use crate::error::{Error, Result};
 use crate::state::App;
 
-/// `aurum backup create` — consistent VACUUM INTO snapshot (README §12).
+/// `aurum backup create` — consistent VACUUM INTO snapshot (docs/SPEC §12).
 pub async fn run_create(_config: Config, output: PathBuf) -> Result<()> {
     let config = Config::load()?;
     let app = App::from_config(config).await?;

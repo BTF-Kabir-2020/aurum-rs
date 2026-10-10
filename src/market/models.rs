@@ -4,12 +4,12 @@ use serde::{Deserialize, Serialize};
 use crate::error::{Error, Result};
 
 /// Canonical trading symbol. Internally always the bare form, e.g. `XAUUSD`.
-/// Display form is `XAU/USD`; provider form is `C:XAUUSD` (README §51).
+/// Display form is `XAU/USD`; provider form is `C:XAUUSD` (docs/SPEC §51).
 #[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct Symbol(String);
 
 impl Symbol {
-    /// One canonical normalization function (README §51).
+    /// One canonical normalization function (docs/SPEC §51).
     /// Accepts `XAUUSD`, `XAU/USD`, `C:XAUUSD`, `xauusd` → `XAUUSD`.
     pub fn normalize(input: &str) -> Result<Self> {
         let raw = input.trim();
@@ -114,7 +114,7 @@ impl std::str::FromStr for Timeframe {
     }
 }
 
-/// OHLCV candle, UTC timestamps everywhere (README §52).
+/// OHLCV candle, UTC timestamps everywhere (docs/SPEC §52).
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Candle {
     pub symbol: Symbol,

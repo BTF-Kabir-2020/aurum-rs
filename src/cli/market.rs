@@ -121,7 +121,7 @@ fn force_demo(config: Config, offline: bool) -> Config {
     c
 }
 
-/// `aurum demo --speed N` (README §30): small deterministic replay over the
+/// `aurum demo --speed N` (docs/SPEC §30): small deterministic replay over the
 /// bundled fixture — computes the rule engine on growing windows, persists
 /// only the final signal. speed 1..=10 scales the inter-frame delay.
 pub async fn run_demo(config: Config, speed: u8) -> Result<()> {

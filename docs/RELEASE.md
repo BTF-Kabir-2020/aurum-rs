@@ -18,7 +18,7 @@ create it in repo settings (Settings → Environments) before the first tag.
 - Config: `dist-workspace.toml` (`ci = "github"`, installers = shell + powershell).
 - Regeneration: edit config → `dist generate`. Never hand-edit the generated `release.yml`.
 - Local pre-flight: `dist plan`.
-- Targets (README §16): x86_64-pc-windows-msvc, x86_64-unknown-linux-gnu, aarch64-unknown-linux-gnu, x86_64-apple-darwin, aarch64-apple-darwin.
+- Targets (docs/SPEC §16): x86_64-pc-windows-msvc, x86_64-unknown-linux-gnu, aarch64-unknown-linux-gnu, x86_64-apple-darwin, aarch64-apple-darwin.
 
 Supported targets (at minimum Windows and Linux):
 

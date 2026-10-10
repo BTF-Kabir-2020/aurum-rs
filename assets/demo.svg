@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="452" viewBox="0 0 820 452" font-family="'Cascadia Code','JetBrains Mono','SFMono-Regular',Consolas,Menlo,monospace" role="img" aria-label="Aurum terminal UI showing XAU/USD demo signal">
+  <rect width="820" height="452" rx="10" fill="#0d1117"/>
+  <rect x="0.5" y="0.5" width="819" height="451" rx="10" fill="none" stroke="#30363d"/>
+
+  <!-- window chrome -->
+  <rect width="820" height="34" rx="10" fill="#161b22"/>
+  <rect y="24" width="820" height="10" fill="#161b22"/>
+  <circle cx="22" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="42" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="62" cy="17" r="6" fill="#27c93f"/>
+  <text x="410" y="22" fill="#8b949e" font-size="12" text-anchor="middle">aurum watch XAUUSD — 127x41</text>
+
+  <!-- inner border box -->
+  <rect x="24" y="54" width="772" height="374" rx="6" fill="none" stroke="#3d444d"/>
+  <text x="410" y="66" fill="#e3b341" font-size="14" font-weight="bold" text-anchor="middle"> AURUM — Financial Market Intelligence Engine </text>
+
+  <!-- body -->
+  <g font-size="15.5" fill="#c9d1d9">
+    <text x="48" y="100">Symbol       <tspan fill="#ffffff">XAU/USD</tspan></text>
+    <text x="48" y="126">Mode         <tspan fill="#ffffff">DEMO</tspan></text>
+    <text x="48" y="152">Price        <tspan fill="#ffffff">3692.39</tspan></text>
+
+    <text x="48" y="196">EMA(20)      <tspan fill="#ffffff">3689.04</tspan></text>
+    <text x="48" y="222">RSI(14)      <tspan fill="#ffffff">28.31</tspan></text>
+    <text x="48" y="248">Momentum     <tspan fill="#ffffff">0.10%</tspan></text>
+
+    <text x="48" y="292" fill="#8b949e">SIGNAL       <tspan fill="#c9d1d9" font-weight="bold">HOLD</tspan></text>
+    <text x="48" y="318" fill="#8b949e">STRENGTH     <tspan fill="#ffffff">0/3 (rule score, not AI)</tspan></text>
+
+    <text x="48" y="362">Data source  <tspan fill="#ffffff">fixture</tspan></text>
+    <text x="48" y="388">Updated      <tspan fill="#ffffff">22:41:08</tspan></text>
+    <text x="48" y="414">Data age     <tspan fill="#ffffff">01s</tspan></text>
+  </g>
+</svg>

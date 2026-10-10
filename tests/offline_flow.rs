@@ -1,4 +1,4 @@
-//! Offline full-flow smoke: fixture → candles → indicators → signal (README §60 Phase 5 flow).
+//! Offline full-flow smoke: fixture → candles → indicators → signal (docs/SPEC §60 Phase 5 flow).
 //! Offline only — no network, no credentials.
 
 use aurum::indicators::{ema, momentum, rsi};

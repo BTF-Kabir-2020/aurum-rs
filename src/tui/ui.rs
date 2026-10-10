@@ -4,7 +4,7 @@ use ratatui::style::{Color, Modifier, Style};
 use ratatui::text::Line;
 use ratatui::widgets::{Block, Borders, Paragraph};
 
-/// Titled border block, per README §29 layout.
+/// Titled border block, per docs/SPEC §29 layout.
 pub fn frame_widget(title: &'static str) -> Block<'static> {
     Block::default()
         .borders(Borders::ALL)

@@ -61,7 +61,7 @@ Rustls wins over native-tls where practical. Every dependency must justify its e
 cargo-dist is initialized (2026-09-21, v0.32.0): `dist-workspace.toml` holds the
 config and `.github/workflows/release.yml` is **generated** by `dist generate`
 (on tag push, dist builds archives for windows-x64, linux-x64, linux-arm64,
-macOS x64+arm64 and ships shell + PowerShell installers per README §16).
+macOS x64+arm64 and ships shell + PowerShell installers per docs/SPEC §16).
 
 - To change platforms/installers: edit `dist-workspace.toml`, then `dist generate`. Never hand-edit the generated `release.yml`.
 - Binary name `aurum` is what archives/installers package.

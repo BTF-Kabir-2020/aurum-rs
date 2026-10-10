@@ -11,7 +11,7 @@ use crate::state::App;
 
 pub type AppState = std::sync::Arc<App>;
 
-/// Full router: unversioned health + versioned `/api/v1` (README §19-20).
+/// Full router: unversioned health + versioned `/api/v1` (docs/SPEC §19-20).
 pub fn router(state: AppState) -> axum::Router {
     axum::Router::new()
         .route("/health/live", get(health_live))

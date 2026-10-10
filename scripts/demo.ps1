@@ -1,4 +1,4 @@
-# scripts/demo.ps1 — one-command showcase for Windows (README §30, OPERATIONS).
+# scripts/demo.ps1 — one-command showcase for Windows (docs/SPEC §30, OPERATIONS).
 # Usage: .\scripts\demo.ps1 [-Speed 10] | -Help
 param(
     [int]$Speed = 10,

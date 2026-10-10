@@ -10,7 +10,7 @@ pub const MAX_STRENGTH: u8 = 3;
 const RSI_LOW: f64 = 30.0;
 const RSI_HIGH: f64 = 70.0;
 
-/// Rule-based decision — README §26. NEVER call this AI (README §28).
+/// Rule-based decision — docs/SPEC §26. NEVER call this AI (docs/SPEC §28).
 ///
 /// BUY : RSI < 30  AND price > EMA20 AND momentum > 0
 /// SELL: RSI > 70  AND price < EMA20 AND momentum < 0
@@ -23,7 +23,7 @@ pub enum Action {
     Hold,
 }
 
-/// Transparent rule state (README §27): the API exposes the reasoning.
+/// Transparent rule state (docs/SPEC §27): the API exposes the reasoning.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Conditions {
     pub rsi_oversold: bool,

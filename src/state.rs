@@ -14,7 +14,7 @@ pub enum Active {
     Massive(MassiveProvider),
 }
 
-/// Clean application state (README §33): provider + storage wiring.
+/// Clean application state (docs/SPEC §33): provider + storage wiring.
 /// Business logic never reads env vars directly (docs/BUILD.md).
 pub struct App {
     pub config: Config,

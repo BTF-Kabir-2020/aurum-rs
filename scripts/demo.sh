@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# scripts/demo.sh — one-command showcase for Linux/macOS (README §30, OPERATIONS).
+# scripts/demo.sh — one-command showcase for Linux/macOS (docs/SPEC §30, OPERATIONS).
 # Usage: ./scripts/demo.sh [speed 1..10]
 set -euo pipefail
 

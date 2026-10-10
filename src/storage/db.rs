@@ -40,7 +40,7 @@ fn migrator() -> sqlx::migrate::Migrator {
 use crate::error::{Error, Result};
 
 /// Open (or create) the SQLite pool with WAL mode; apply pending migrations.
-/// Fails safely — never destroys existing data (README §46).
+/// Fails safely — never destroys existing data (docs/SPEC §46).
 pub async fn open(path: &Path) -> Result<SqlitePool> {
     if let Some(parent) = path.parent()
         && !parent.as_os_str().is_empty()
@@ -72,7 +72,7 @@ pub async fn run_migrations(pool: &SqlitePool) -> Result<()> {
     Ok(())
 }
 
-/// `journal_mode` should be `wal` after open (README §9).
+/// `journal_mode` should be `wal` after open (docs/SPEC §9).
 pub async fn journal_mode(pool: &SqlitePool) -> Result<String> {
     let row: (String,) = sqlx::query_as("PRAGMA journal_mode")
         .fetch_one(pool)

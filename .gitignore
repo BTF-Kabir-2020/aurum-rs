@@ -7,6 +7,14 @@
 /backups/*
 !/backups/README.md
 
+# ---- SQLite sidecar files ----
+*.db-wal
+*.db-shm
+*.db-journal
+
+# ---- cargo-dist / packaging local output ----
+/dist/
+
 # ---- Local runtime config (each user creates their own) ----
 /config.toml
 /config.local.toml
@@ -23,3 +31,7 @@
 .vscode/
 *.log
 *.tmp
+
+# ---- Local working notes (never commit; owner deletes manually) ----
+/ACTION_PLAN.md
+/LINKEDIN_POST_WEEK1.md

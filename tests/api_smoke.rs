@@ -25,7 +25,7 @@ async fn api_endpoints_smoke() {
     let base = format!("http://{addr}");
     let client = reqwest::Client::new();
 
-    // health (unversioned) — include version (README §19)
+    // health (unversioned) — include version (docs/SPEC §19)
     let r = client
         .get(format!("{base}/health/live"))
         .send()
@@ -48,7 +48,7 @@ async fn api_endpoints_smoke() {
     assert_eq!(j["status"], "ok");
     assert!(j["version"].as_str().is_some());
 
-    // quote — demo replay provider, display form (README §51)
+    // quote — demo replay provider, display form (docs/SPEC §51)
     let r = client
         .get(format!("{base}/api/v1/quote/XAUUSD"))
         .send()
@@ -81,7 +81,7 @@ async fn api_endpoints_smoke() {
     assert_eq!(j["timeframe"], "5m");
     assert!(j["candles"].as_array().unwrap().len() == 10);
 
-    // signal — README §50 shape
+    // signal — docs/SPEC §50 shape
     let r = client
         .get(format!("{base}/api/v1/signal/XAUUSD"))
         .send()
@@ -99,7 +99,7 @@ async fn api_endpoints_smoke() {
     assert!(j["version"].is_string());
     assert_eq!(j["data"]["source"], "fixture");
 
-    // invalid symbol → 400 with actionable error (README §21)
+    // invalid symbol → 400 with actionable error (docs/SPEC §21)
     let r = client
         .get(format!("{base}/api/v1/quote/GOLD_BAR"))
         .send()

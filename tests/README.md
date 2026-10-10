@@ -10,4 +10,4 @@ Integration and unit tests that run with `cargo test`:
 - backup validation / restore
 - API responses
 
-The full required test matrix lives in `README.md`, section 37.
+The full required test matrix lives in `docs/SPEC.md`, section 37.

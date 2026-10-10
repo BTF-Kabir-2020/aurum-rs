@@ -27,7 +27,7 @@ fn parse_action(s: &str) -> Result<Action> {
     }
 }
 
-/// Upsert candles (dedupe by symbol+timeframe+timestamp; README §10).
+/// Upsert candles (dedupe by symbol+timeframe+timestamp; docs/SPEC §10).
 pub async fn save_candles(pool: &SqlitePool, candles: &[Candle]) -> Result<u64> {
     let mut tx = pool.begin().await?;
     let mut n = 0u64;

@@ -15,7 +15,7 @@ Run locally and in CI before any release/PR merge:
 | DB migrations | automatic on startup; verified by integration test |
 | Docker | `docker compose up -d` + health + API + persistence |
 
-CI (`ci.yml`) also builds with `-D warnings` via a RUSTFLAGS policy. See README §37 for the canonical command set.
+CI (`ci.yml`) also builds with `-D warnings` via a RUSTFLAGS policy. See docs/SPEC §37 for the canonical command set.
 
 ## 2. Test layers
 
@@ -28,7 +28,7 @@ CI (`ci.yml`) also builds with `-D warnings` via a RUSTFLAGS policy. See README 
 
 Provider-dependent paths run against `fixtures/provider/*` only. CI never needs a personal API key.
 
-## 3. Required smoke tests (README §37)
+## 3. Required smoke tests (docs/SPEC §37)
 
 - [x] `aurum demo` works offline (no network, no key)
 - [x] `aurum doctor` produces understandable diagnostics
@@ -57,7 +57,7 @@ Provider-dependent paths run against `fixtures/provider/*` only. CI never needs 
 
 ## 6. Definition of done checklist
 
-Mirror of README §59. A task is done only when the full checklist passes, not merely when `cargo check` passes.
+Mirror of docs/SPEC §59. A task is done only when the full checklist passes, not merely when `cargo check` passes.
 
 ## 7. Test inventory (target)
 

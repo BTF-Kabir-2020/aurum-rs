@@ -13,9 +13,9 @@ use crate::market::models::Symbol;
 use crate::state::App;
 use crate::tui::ui::Snapshot;
 
-/// Run the live TUI for `aurum watch` until 'q' or Ctrl+C (README §29).
+/// Run the live TUI for `aurum watch` until 'q' or Ctrl+C (docs/SPEC §29).
 /// Low on CPU: blocking poll with the configured refresh interval,
-/// no busy loops, terminal restored on all exit paths (README §49).
+/// no busy loops, terminal restored on all exit paths (docs/SPEC §49).
 pub async fn run(config: Config, symbol_str: &str, offline: bool) -> Result<()> {
     let symbol = Symbol::normalize(symbol_str)?;
     let mut config = config;

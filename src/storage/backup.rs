@@ -4,7 +4,7 @@ use sqlx::SqlitePool;
 
 use crate::error::{Error, Result};
 
-/// Consistent online backup via SQLite `VACUUM INTO` (README §12):
+/// Consistent online backup via SQLite `VACUUM INTO` (docs/SPEC §12):
 /// atomic destination creation, no corruption, no silent overwrite.
 pub async fn create(db: &SqlitePool, destination: &Path) -> Result<std::fs::Metadata> {
     if destination.exists() {
@@ -74,7 +74,7 @@ pub async fn verify(path: &Path) -> Result<()> {
     result
 }
 
-/// Restore (README §12): validate backup → integrity → safety copy of the
+/// Restore (docs/SPEC §12): validate backup → integrity → safety copy of the
 /// current DB → replace → reopen + migrations validated by reopen.
 pub async fn restore(pool: &SqlitePool, backup: &Path, live_db_path: &Path) -> Result<()> {
     verify(backup).await?;

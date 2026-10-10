@@ -9,7 +9,7 @@ use crate::market::models::{Candle, Quote, Symbol, Timeframe};
 pub const DEFAULT_FIXTURE: &str = "fixtures/xauusd_5m.csv";
 
 /// Same fixture embedded at compile time: `cargo install --path .` users (or
-/// Docker WORKDIR changes) can run from anywhere (README §15, §30).
+/// Docker WORKDIR changes) can run from anywhere (docs/SPEC §15, §30).
 const EMBEDDED_FIXTURE: &str = include_str!(concat!(
     env!("CARGO_MANIFEST_DIR"),
     "/fixtures/xauusd_5m.csv"

@@ -20,7 +20,7 @@ struct Cli {
 enum Command {
     /// Run the deterministic offline DEMO replay (fixture → rules, no credentials).
     Demo {
-        /// Playback speed 1..10 (higher = faster frames, README §30).
+        /// Playback speed 1..10 (higher = faster frames, docs/SPEC §30).
         #[arg(long, short, default_value_t = 2)]
         speed: u8,
     },
